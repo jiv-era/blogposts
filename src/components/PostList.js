@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import UserHeader from './UserHeader';
 
 
 class PostList extends React.Component {
@@ -18,6 +19,7 @@ class PostList extends React.Component {
                             <h2>{post.title}</h2>
                             <p>{post.body}</p>
                         </div>
+                        <UserHeader userId={post.userId} />
                     </div>
                 </div>
             );
@@ -27,7 +29,7 @@ class PostList extends React.Component {
     render() {
         console.log(this.props.posts)
         return(
-            <div className="ui relaxed divided list">{this.renderList}</div>
+            <div className="ui relaxed divided list">{this.renderList()}</div>
         )
     };
 };
